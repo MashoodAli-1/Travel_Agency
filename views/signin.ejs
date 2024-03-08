@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+        <title>Signin</title>
+</head>
+
+<body>
+    <%- include('partials/nav'); %>
+        <div class="container">
+            <h1 class="mt-5 mb-5 text-center text-primary text-success"><b>Sign in</b></h1>
+
+            <div class="row mt-5">
+                <div class="col-md-3">&nbsp;</div>
+                <div class="col-md-6">
+                    <% if(session.userid) { response.redirect('/') %>
+                        <% } else { %>
+                            <div class="card bg-light">
+                                <div class="card-header">Already a member? Signin below</div>
+                                <div class="card-body">
+                                    <form method="post" action="/signin">
+                                        <div class="mb-3">
+                                            <label>Email Address</label>
+                                            <input type="email" name="email" id="email" class="form-control" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>Password</label>
+                                            <input type="password" name="password" id="password" class="form-control" />
+                                        </div>
+                                        <div class="mb-3 mt-3 text-center">
+                                            <input type="submit" class="btn btn-success " value="Sign In" />
+                                        </div>
+                                    </form>
+                                    <a class="text-success" href="/forgetPassword">
+                                        <h6 class="text-center">Forgot Password?</h6>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <% } %>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
